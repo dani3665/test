@@ -18,7 +18,7 @@ class Chat(Resource):
         data = Chat.parser.parse_args()
         name = data['name']
 
-        chat = ChatModel.query.filter_by(name=name).first
+        chat = ChatModel.query.filter_by(name=name).first()
         return chat.json()
 
 
