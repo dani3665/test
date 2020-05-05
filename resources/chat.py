@@ -19,8 +19,9 @@ class Chat(Resource):
         name = data['name']
 
         chat = ChatModel.query.filter_by(name=name).first()
-        return chat.json()
-
+        if chat:
+            return chat.json()
+        return {'message': 'chat not found'}
 
 class ChatList(Resource):
     def get(self):
